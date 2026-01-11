@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>动作和物品：A&S - 网易我的世界2026新冒险</title>
+    <title>动作和物品A&S - 网易我的世界</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --netease-orange: #ff7800;
+            --netease-dark: #0a1520;
+            --netease-blue: #1a2d3e;
+            --accent-blue: #00c1ff;
+            --accent-green: #00ff9d;
+            --text-light: #e8f4ff;
+            --text-muted: #a0d2ff;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -14,25 +24,11 @@
         }
         
         body {
-            background: linear-gradient(135deg, #0a1520 0%, #1a2d3e 100%);
-            color: #e8f4ff;
+            background: linear-gradient(135deg, var(--netease-dark) 0%, var(--netease-blue) 100%);
+            color: var(--text-light);
             line-height: 1.6;
             min-height: 100vh;
-            position: relative;
             overflow-x: hidden;
-        }
-        
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(0, 150, 255, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(100, 0, 255, 0.05) 0%, transparent 20%);
-            z-index: -1;
         }
         
         .container {
@@ -41,226 +37,230 @@
             padding: 20px;
         }
         
-        /* 网易品牌头部 */
+        /* 网易头部样式 */
         .netease-header {
-            background: rgba(10, 30, 50, 0.85);
+            background: rgba(15, 35, 60, 0.95);
             border-radius: 0 0 20px 20px;
             padding: 15px 30px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 30px;
-            border-bottom: 3px solid #ff7800;
-            box-shadow: 0 5px 15px rgba(0, 20, 40, 0.5);
+            border-bottom: 4px solid var(--netease-orange);
+            box-shadow: 0 5px 20px rgba(0, 20, 40, 0.6);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
         }
         
-        .netease-logo {
+        .netease-brand {
             display: flex;
             align-items: center;
             gap: 15px;
         }
         
-        .netease-logo img {
-            height: 40px;
-            width: auto;
+        .netease-icon {
+            font-size: 2.2rem;
+            color: var(--netease-orange);
         }
         
-        .netease-logo span {
+        .netease-brand span {
             font-size: 1.8rem;
             font-weight: bold;
-            background: linear-gradient(90deg, #ff7800, #ffaa00);
+            background: linear-gradient(90deg, var(--netease-orange), #ffaa00);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
         
-        .minecraft-logo {
-            font-size: 1.5rem;
+        .minecraft-brand {
+            font-size: 1.6rem;
             font-weight: bold;
             color: #5ab552;
             letter-spacing: 1px;
-        }
-        
-        /* 主标题区 */
-        .main-header {
-            text-align: center;
-            padding: 40px 20px;
-            background: rgba(15, 40, 70, 0.7);
-            border-radius: 20px;
-            margin-bottom: 40px;
-            border: 1px solid rgba(64, 156, 255, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 20, 40, 0.5);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .main-header::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #ff7800, #00c1ff, #ff7800);
-        }
-        
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            background: linear-gradient(90deg, #ffaa00, #00c1ff, #ff7800);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        .subtitle {
-            font-size: 1.5rem;
-            color: #a0d2ff;
-            margin-bottom: 25px;
-        }
-        
-        .code-box {
-            display: inline-block;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 15px 30px;
-            border-radius: 15px;
-            font-family: 'Courier New', monospace;
-            font-size: 2rem;
-            letter-spacing: 4px;
-            color: #00ff9d;
-            border: 3px solid #ff7800;
-            margin: 20px 0;
-            box-shadow: 0 0 20px rgba(255, 120, 0, 0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .code-box:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(255, 120, 0, 0.5);
-        }
-        
-        /* 内容区域 */
-        .content-section {
-            background: rgba(20, 45, 80, 0.6);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(100, 180, 255, 0.2);
-            box-shadow: 0 8px 25px rgba(0, 10, 30, 0.4);
-        }
-        
-        h2 {
-            color: #4facfe;
-            border-left: 5px solid #ff7800;
-            padding-left: 15px;
-            margin-bottom: 25px;
-            font-size: 2rem;
             display: flex;
             align-items: center;
             gap: 10px;
         }
         
-        h2 i {
-            color: #ff7800;
-        }
-        
-        /* 特色网格 */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
-        }
-        
-        .feature-card {
-            background: rgba(30, 60, 100, 0.6);
-            padding: 25px;
-            border-radius: 15px;
+        /* 主标题区域 */
+        .hero-section {
             text-align: center;
-            transition: all 0.3s;
-            border: 1px solid rgba(100, 180, 255, 0.1);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            background: rgba(40, 80, 130, 0.7);
-            border-color: rgba(255, 120, 0, 0.3);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: #ffaa00;
-        }
-        
-        .feature-card h3 {
-            color: #00c1ff;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-        
-        /* 图片展示区 */
-        .image-showcase {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
-        }
-        
-        .image-box {
-            border-radius: 12px;
+            padding: 50px 30px;
+            background: rgba(20, 45, 80, 0.7);
+            border-radius: 25px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(100, 180, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 20, 40, 0.5);
+            position: relative;
             overflow: hidden;
-            background: rgba(0, 0, 0, 0.3);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--netease-orange), var(--accent-blue), var(--netease-orange));
+        }
+        
+        .hero-title {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #ffaa00, var(--accent-blue), #ff7800);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.6rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .mod-code {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 18px 40px;
+            border-radius: 18px;
+            font-family: 'Courier New', monospace;
+            font-size: 2.2rem;
+            letter-spacing: 5px;
+            color: var(--accent-green);
+            border: 3px solid var(--netease-orange);
+            margin: 25px 0;
+            box-shadow: 0 0 25px rgba(255, 120, 0, 0.4);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mod-code:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(255, 120, 0, 0.6);
+        }
+        
+        .mod-code::after {
+            content: "点击复制";
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .mod-code:hover::after {
+            opacity: 1;
+        }
+        
+        /* 内容区块 */
+        .content-block {
+            background: rgba(25, 50, 85, 0.7);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 35px;
+            border: 1px solid rgba(100, 180, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 10, 30, 0.4);
             transition: transform 0.3s;
         }
         
-        .image-box:hover {
-            transform: scale(1.03);
+        .content-block:hover {
+            transform: translateY(-5px);
         }
         
-        .image-box img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-            border-bottom: 3px solid rgba(255, 120, 0, 0.5);
+        .section-title {
+            color: var(--accent-blue);
+            border-left: 6px solid var(--netease-orange);
+            padding-left: 18px;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
         
-        .image-caption {
-            padding: 15px;
-            text-align: center;
-            color: #a0d2ff;
-            font-weight: 500;
+        .section-title i {
+            color: var(--netease-orange);
         }
         
-        /* 视频展示区 */
-        .video-showcase {
+        /* 四图展示区 */
+        .quad-image-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
             margin: 30px 0;
         }
         
-        .video-box {
-            background: rgba(0, 0, 0, 0.4);
+        .image-card {
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s;
+            position: relative;
         }
         
-        .video-wrapper {
+        .image-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+        
+        .image-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 3px solid var(--netease-orange);
+            transition: transform 0.5s;
+        }
+        
+        .image-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .image-label {
+            padding: 20px;
+            text-align: center;
+            color: var(--text-light);
+            font-weight: 600;
+            background: rgba(15, 35, 60, 0.9);
+        }
+        
+        /* 双视频展示区 */
+        .dual-video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 35px 0;
+        }
+        
+        .video-card {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .video-container {
             position: relative;
             width: 100%;
             padding-top: 56.25%; /* 16:9 比例 */
         }
         
-        .video-wrapper iframe {
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -269,84 +269,126 @@
             border: none;
         }
         
-        .video-caption {
-            padding: 20px;
+        .video-description {
+            padding: 22px;
             text-align: center;
             color: #ffcc99;
             font-size: 1.1rem;
+            background: rgba(20, 40, 70, 0.8);
         }
         
-        /* 安装指南 */
-        .install-steps {
-            counter-reset: step-counter;
-            margin: 30px 0;
+        /* 特性展示 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 35px 0;
+        }
+        
+        .feature-item {
+            background: rgba(35, 65, 110, 0.6);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(100, 180, 255, 0.1);
+        }
+        
+        .feature-item:hover {
+            background: rgba(45, 85, 140, 0.7);
+            border-color: rgba(255, 120, 0, 0.3);
+            transform: translateY(-8px);
+        }
+        
+        .feature-icon {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--netease-orange);
+        }
+        
+        .feature-title {
+            color: var(--accent-blue);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        /* 安装步骤 */
+        .steps-container {
+            counter-reset: step;
+            margin: 35px 0;
         }
         
         .step {
-            background: rgba(40, 70, 120, 0.5);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-left: 5px solid #ff7800;
+            background: rgba(40, 75, 125, 0.5);
+            border-radius: 15px;
+            padding: 28px;
+            margin-bottom: 22px;
+            border-left: 6px solid var(--netease-orange);
             position: relative;
-            padding-left: 80px;
+            padding-left: 100px;
+            transition: transform 0.3s;
+        }
+        
+        .step:hover {
+            transform: translateX(10px);
         }
         
         .step::before {
-            counter-increment: step-counter;
-            content: counter(step-counter);
+            counter-increment: step;
+            content: "0" counter(step);
             position: absolute;
-            left: 20px;
+            left: 25px;
             top: 50%;
             transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
-            background: #ff7800;
+            width: 50px;
+            height: 50px;
+            background: var(--netease-orange);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
+            box-shadow: 0 5px 15px rgba(255, 120, 0, 0.4);
         }
         
-        .step h3 {
-            color: #00c1ff;
-            margin-bottom: 10px;
-            font-size: 1.3rem;
+        .step-title {
+            color: var(--accent-blue);
+            margin-bottom: 12px;
+            font-size: 1.4rem;
         }
         
-        /* 行动号召按钮 */
-        .cta-section {
+        /* 行动按钮 */
+        .action-section {
             text-align: center;
             margin: 50px 0;
         }
         
-        .netease-button {
+        .primary-button {
             display: inline-block;
-            padding: 20px 50px;
-            background: linear-gradient(90deg, #ff7800, #ffaa00);
+            padding: 22px 60px;
+            background: linear-gradient(90deg, var(--netease-orange), #ffaa00);
             color: white;
             text-decoration: none;
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             font-weight: bold;
-            border-radius: 50px;
+            border-radius: 60px;
             border: none;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 8px 25px rgba(255, 120, 0, 0.4);
+            box-shadow: 0 10px 30px rgba(255, 120, 0, 0.5);
             position: relative;
             overflow: hidden;
         }
         
-        .netease-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 30px rgba(255, 120, 0, 0.6);
+        .primary-button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 15px 40px rgba(255, 120, 0, 0.7);
             background: linear-gradient(90deg, #ff8c00, #ffbb33);
         }
         
-        .netease-button::after {
+        .primary-button::after {
             content: "";
             position: absolute;
             top: -50%;
@@ -355,21 +397,43 @@
             height: 200%;
             background: rgba(255, 255, 255, 0.1);
             transform: rotate(30deg);
-            transition: all 0.5s;
+            transition: all 0.8s;
         }
         
-        .netease-button:hover::after {
+        .primary-button:hover::after {
             left: 100%;
+        }
+        
+        /* 页脚 */
+        .page-footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 35px;
+            color: #88aadd;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(100, 150, 255, 0.3);
+            background: rgba(15, 30, 55, 0.6);
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .disclaimer {
+            font-size: 0.85rem;
+            color: #aabbcc;
+            margin-top: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
         }
         
         /* 响应式设计 */
         @media (max-width: 1100px) {
-            .video-showcase {
+            .quad-image-grid, .dual-video-grid {
                 grid-template-columns: 1fr;
             }
             
-            h1 {
-                font-size: 2.5rem;
+            .hero-title {
+                font-size: 2.6rem;
             }
         }
         
@@ -378,270 +442,316 @@
                 flex-direction: column;
                 gap: 15px;
                 text-align: center;
+                padding: 15px;
             }
             
-            h1 {
-                font-size: 2rem;
+            .hero-title {
+                font-size: 2.2rem;
             }
             
-            .subtitle {
-                font-size: 1.2rem;
+            .hero-subtitle {
+                font-size: 1.3rem;
             }
             
-            .code-box {
+            .mod-code {
+                font-size: 1.8rem;
+                padding: 15px 30px;
+            }
+            
+            .content-block {
+                padding: 25px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .step {
+                padding-left: 85px;
+            }
+            
+            .primary-button {
+                padding: 18px 40px;
+                font-size: 1.6rem;
+            }
+            
+            .image-card img {
+                height: 220px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.9rem;
+            }
+            
+            .mod-code {
                 font-size: 1.5rem;
-                padding: 12px 20px;
+                letter-spacing: 3px;
             }
             
-            .content-section {
-                padding: 20px;
-            }
-            
-            .image-showcase, .feature-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .video-showcase {
+            .features-grid {
                 grid-template-columns: 1fr;
             }
             
             .step {
-                padding-left: 70px;
+                padding: 25px 25px 25px 80px;
             }
             
-            .netease-button {
-                padding: 15px 30px;
-                font-size: 1.4rem;
+            .step::before {
+                left: 15px;
+                width: 45px;
+                height: 45px;
             }
-        }
-        
-        /* 页脚 */
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 30px;
-            color: #88aadd;
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(100, 150, 255, 0.2);
-            background: rgba(10, 25, 50, 0.5);
-            border-radius: 15px 15px 0 0;
-        }
-        
-        .disclaimer {
-            font-size: 0.8rem;
-            color: #aabbcc;
-            margin-top: 15px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
         }
     </style>
 </head>
 <body>
     <!-- 网易品牌头部 -->
-    <div class="netease-header">
-        <div class="netease-logo">
-            <!-- 网易图标使用字体图标替代 -->
-            <i class="fas fa-gamepad" style="font-size: 2rem; color: #ff7800;"></i>
+    <header class="netease-header">
+        <div class="netease-brand">
+            <i class="fas fa-gamepad netease-icon"></i>
             <span>网易游戏</span>
         </div>
-        <div class="minecraft-logo">
-            <i class="fas fa-cube"></i> 我的世界
+        <div class="minecraft-brand">
+            <i class="fas fa-cube"></i> 
+            <span>我的世界</span>
         </div>
-    </div>
+    </header>
     
-    <div class="container">
+    <main class="container">
         <!-- 主标题区 -->
-        <header class="main-header">
-            <h1>动作和物品：A&S</h1>
-            <p class="subtitle">用前所未有的生动体验开启你的2026年冒险新篇章！</p>
-            <p>探索《我的世界》视觉与互动的革命性进化</p>
-            <div class="code-box">模组码：8784493</div>
-            <p style="margin-top: 15px; color: #a0d2ff;">网易《我的世界》官方平台专属模组</p>
-        </header>
-        
-        <!-- 模组介绍 -->
-        <section class="content-section">
-            <h2><i class="fas fa-info-circle"></i> 模组介绍</h2>
-            <p>《动作和物品：A&S》是网易《我的世界》平台上一款革命性视觉增强模组，专为追求极致游戏体验的玩家设计。该模组全面升级了游戏中的动画系统、物品纹理和视觉特效，让每一个动作、每一个物品都焕发新生。</p>
-            <p>无论是探索神秘洞穴、建造宏伟城堡，还是与敌对生物战斗，A&S模组都能为您带来前所未有的沉浸式体验。模组经过精心优化，在提升视觉品质的同时，确保游戏运行的流畅性。</p>
+        <section class="hero-section">
+            <h1 class="hero-title">动作和物品：A&S</h1>
+            <p class="hero-subtitle">用前所未有的生动体验开启你的2026年冒险新篇章！重新定义《我的世界》视觉与交互体验-更新1月30日上线</p>
+            <div class="mod-code" id="modCode">8784493</div>
+            <p style="margin-top: 15px; color: var(--text-muted); font-size: 1.1rem;">网易《我的世界》官方平台独家视觉增强模组</p>
         </section>
         
-        <!-- 核心特色 -->
-        <section class="content-section">
-            <h2><i class="fas fa-star"></i> 核心特色</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
+        <!-- 模组介绍 -->
+        <section class="content-block">
+            <h2 class="section-title"><i class="fas fa-info-circle"></i> 模组介绍</h2>
+            <p>《动作和物品：A&S》是网易《我的世界》平台上的一款革命性视觉增强模组，专为追求极致游戏体验的玩家设计。本模组全面重构了游戏中的动画系统、物品纹理和视觉特效，让每一个动作、每一个物品都焕发新生。</p>
+            <p>无论是探索神秘洞穴、建造宏伟城堡，还是与敌对生物战斗，A&S模组都能为您带来前所未有的沉浸式体验。模组经过精心优化，在提升视觉品质的同时，确保游戏运行的流畅性，让您尽情享受2026年的全新冒险。</p>
+        </section>
+        
+        <!-- 四图展示区 -->
+        <section class="content-block">
+            <h2 class="section-title"><i class="fas fa-images"></i> 视觉革命展示</h2>
+            <p>以下四张图片展示了A&S模组为《我的世界》带来的全方位视觉提升：</p>
+            
+            <div class="quad-image-grid">
+                <div class="image-card">
+                    <!-- 图片1: 动作展示 -->
+                    <img src="https://txc.gtimg.com/data/14842/2026/0111/f53974b524d6d26973b08075abb9d930.webp" alt="A&S动作动画展示" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x400/1a3a5f/00c1ff?text=动作动画展示'">
+                    <div class="image-label">流畅的角色动作与动画系统</div>
+                </div>
+                
+                <div class="image-card">
+                    <!-- 图片2: 物品纹理展示 -->
+                    <img src="https://txc.gtimg.com/data/14842/2026/0111/736cfa31b3a058815bdf92b5992b7d2c.webp" alt="A&S物品纹理展示" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x400/1a3a5f/00c1ff?text=物品纹理展示'">
+                    <div class="image-label">精致的物品纹理与细节设计</div>
+                </div>
+                
+                <div class="image-card">
+                    <!-- 图片3: 特效展示 -->
+                    <img src="https://txc.gtimg.com/data/14842/2026/0111/7dfdf591f7752cfbd2b51f9a7d9130cd.webp" alt="A&S特效展示" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x400/1a3a5f/00c1ff?text=视觉特效展示'">
+                    <div class="image-label">炫目的视觉特效与粒子效果</div>
+                </div>
+                
+                <div class="image-card">
+                    <!-- 图片4: 光影展示 -->
+                    <img src="https://txc.gtimg.com/data/14842/2026/0111/8a7643fddb31cd89887364cd9e65f2da.webp" alt="A&S光影展示" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x400/1a3a5f/00c1ff?text=光影效果展示'">
+                    <div class="image-label">逼真的光影效果与环境氛围</div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 25px; color: var(--text-muted); font-style: italic;">提示：请将上述图片URL替换为实际的宣传图片链接</p>
+        </section>
+        
+        <!-- 核心特性 -->
+        <section class="content-block">
+            <h2 class="section-title"><i class="fas fa-star"></i> 核心特性</h2>
+            <div class="features-grid">
+                <div class="feature-item">
                     <div class="feature-icon">
                         <i class="fas fa-running"></i>
                     </div>
-                    <h3>流畅动作系统</h3>
-                    <p>全面重制玩家、生物和怪物的动作动画，行走、奔跑、跳跃、攻击等动作更加自然流畅，赋予游戏角色生命力。</p>
+                    <h3 class="feature-title">全面动作重制</h3>
+                    <p>重新设计玩家、生物和怪物的所有动作动画，行走、奔跑、跳跃、攻击等动作更加自然流畅，赋予游戏角色生命力。</p>
                 </div>
-                <div class="feature-card">
+                
+                <div class="feature-item">
                     <div class="feature-icon">
                         <i class="fas fa-gem"></i>
                     </div>
-                    <h3>精致物品纹理</h3>
-                    <p>所有工具、武器、盔甲和物品都拥有全新高清纹理，细节丰富，光影效果逼真，让您的装备更加醒目。</p>
+                    <h3 class="feature-title">高清物品纹理</h3>
+                    <p>所有工具、武器、盔甲和物品都拥有全新高清纹理，细节丰富，光影效果逼真，让您的装备更加醒目独特。</p>
                 </div>
-                <div class="feature-card">
+                
+                <div class="feature-item">
                     <div class="feature-icon">
                         <i class="fas fa-magic"></i>
                     </div>
-                    <h3>炫目视觉特效</h3>
+                    <h3 class="feature-title">炫目视觉特效</h3>
                     <p>重制药水效果、附魔光效、爆炸特效和天气系统，每一次施法和战斗都伴随着令人惊叹的视觉盛宴。</p>
                 </div>
-                <div class="feature-card">
+                
+                <div class="feature-item">
                     <div class="feature-icon">
                         <i class="fas fa-sun"></i>
                     </div>
-                    <h3>动态光影系统</h3>
+                    <h3 class="feature-title">动态光影系统</h3>
                     <p>升级的光照系统让昼夜交替更加自然，水体和熔岩拥有逼真的反射效果，洞穴探索充满神秘氛围。</p>
                 </div>
             </div>
         </section>
         
-        <!-- 图片展示区 -->
-        <section class="content-section">
-            <h2><i class="fas fa-images"></i> 视觉展示</h2>
-            <p>以下图片展示了A&S模组为《我的世界》带来的显著视觉提升：</p>
-            
-            <div class="image-showcase">
-                <div class="image-box">
-                    <!-- 替换为实际图片 -->
-                    <img src="https://txc.gtimg.com/data/14842/2026/0111/7dfdf591f7752cfbd2b51f9a7d9130cd.webp" alt="A&S动作动画展示 - 流畅的角色动作" onerror="this.onerror=null; this.src='https://txc.gtimg.com/data/14842/2026/0111/7dfdf591f7752cfbd2b51f9a7d9130cd.webp=动作动画展示'">
-                    <div class="image-caption">流畅的角色动作与动画 - 行走、奔跑、攻击更自然</div>
-                </div>
-                <div class="image-box">
-                    <!-- 替换为实际图片 -->
-                    <img src="https://txc.gtimg.com/data/14842/2026/0111/f53974b524d6d26973b08075abb9d930.webp" alt="A&S物品纹理展示 - 精致的物品细节" onerror="this.onerror=null; this.src='https://txc.gtimg.com/data/14842/2026/0111/f53974b524d6d26973b08075abb9d930.webp=物品纹理展示'">
-                    <div class="image-caption">精致的物品纹理与细节 - 工具、武器、盔甲焕然一新</div>
-                </div>
-                <div class="image-box">
-                    <!-- 替换为实际图片 -->
-                    <img src="https://txc.gtimg.com/data/14842/2026/0111/736cfa31b3a058815bdf92b5992b7d2c.webp" alt="A&S光影效果展示 - 逼真的光照与阴影" onerror="this.onerror=null; this.src='https://txc.gtimg.com/data/14842/2026/0111/736cfa31b3a058815bdf92b5992b7d2c.webp=光影效果展示'">
-                    <div class="image-caption">逼真的光影效果 - 动态光照让世界更生动</div>
-                </div>
-            </div>
-            
-            <p style="text-align: center; margin-top: 20px; color: #a0d2ff; font-style: italic;">提示：请将图片URL替换为实际的宣传图片链接</p>
-        </section>
-        
-        <!-- 视频展示区 -->
-        <section class="content-section">
-            <h2><i class="fas fa-video"></i> 效果演示</h2>
+        <!-- 双视频展示区 -->
+        <section class="content-block">
+            <h2 class="section-title"><i class="fas fa-video"></i> 效果演示视频</h2>
             <p>观看以下视频，亲身体验A&S模组带来的震撼视觉效果：</p>
             
-            <div class="video-showcase">
-                <div class="video-box">
-                    <div class="video-wrapper">
-                        <!-- 替换为实际视频URL -->
+            <div class="dual-video-grid">
+                <div class="video-card">
+                    <div class="video-container">
+                        <!-- 视频1: 全面展示 -->
                         <iframe src="https://player.bilibili.com/player.html?bvid=BV1okTDz3Eoh" scrolling="no" frameborder="no" allowfullscreen="true"></iframe>
                     </div>
-                    <div class="video-caption">A&S模组全面演示 - 动作、物品与特效展示</div>
+                    <div class="video-description">A&S模组全面演示 - 动作、物品与特效全方位展示</div>
                 </div>
-                <div class="video-box">
-                    <div class="video-wrapper">
-                        <!-- 替换为实际视频URL -->
-                        <iframe src="https://b23.tv/jvpKjQk" scrolling="no" frameborder="no" allowfullscreen="true"></iframe>
+                
+                <div class="video-card">
+                    <div class="video-container">
+                        <!-- 视频2: 实战演示 -->
+                        <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=115824950057187&bvid=BV1A8iFB8E2w&cid=35143027219&p=1" scrolling="no" frameborder="no" allowfullscreen="true"></iframe>
                     </div>
-                    <div class="video-caption">A&S模组！</div>
+                    <div class="video-description">网易我的世界《动作和物品：A&S》上线模组实战演示 - 官方</div>
                 </div>
             </div>
             
-            <p style="text-align: center; margin-top: 20px; color: #a0d2ff; font-style: italic;">提示：请将视频嵌入代码替换为实际的宣传视频</p>
+            <p style="text-align: center; margin-top: 25px; color: var(--text-muted); font-style: italic;">提示：请将视频嵌入代码替换为实际的宣传视频</p>
         </section>
         
         <!-- 安装指南 -->
-        <section class="content-section">
-            <h2><i class="fas fa-download"></i> 安装指南</h2>
+        <section class="content-block">
+            <h2 class="section-title"><i class="fas fa-download"></i> 安装指南</h2>
             <p>在网易《我的世界》中安装A&S模组非常简单，只需按照以下步骤操作：</p>
             
-            <div class="install-steps">
+            <div class="steps-container">
                 <div class="step">
-                    <h3>打开网易《我的世界》</h3>
+                    <h3 class="step-title">打开网易《我的世界》</h3>
                     <p>启动网易《我的世界》客户端，确保您已登录账号并连接网络。</p>
                 </div>
+                
                 <div class="step">
-                    <h3>进入资源中心</h3>
+                    <h3 class="step-title">进入资源中心</h3>
                     <p>点击主界面上的"资源中心"按钮，进入模组和资源包下载页面。</p>
                 </div>
+                
                 <div class="step">
-                    <h3>搜索模组码</h3>
+                    <h3 class="step-title">搜索模组码</h3>
                     <p>在搜索框中输入模组码 <strong>8784493</strong>，即可找到"动作和物品：A&S"模组。</p>
                 </div>
+                
                 <div class="step">
-                    <h3>下载并启用</h3>
+                    <h3 class="step-title">下载并启用</h3>
                     <p>点击下载按钮，下载完成后在"已安装"列表中找到该模组并启用。</p>
                 </div>
+                
                 <div class="step">
-                    <h3>开始游戏</h3>
+                    <h3 class="step-title">开始游戏</h3>
                     <p>创建新世界或进入现有世界，在游戏设置中确保A&S模组已激活，开始您的2026新冒险！</p>
                 </div>
             </div>
             
-            <div style="background: rgba(255, 220, 100, 0.1); border-left: 5px solid #ffcc00; padding: 20px; margin-top: 25px; border-radius: 0 12px 12px 0;">
-                <p><strong>注意：</strong> A&S模组需要网易《我的世界》最新版本支持。如果遇到兼容性问题，请确保游戏已更新到最新版本。</p>
+            <div style="background: rgba(255, 220, 100, 0.1); border-left: 5px solid #ffcc00; padding: 22px; margin-top: 30px; border-radius: 0 15px 15px 0;">
+                <p><strong>注意：</strong> A&S模组需要网易《我的世界》最新版本支持。如果遇到兼容性问题，请确保游戏已更新到最新版本，并检查您的设备是否满足运行要求。</p>
             </div>
         </section>
         
         <!-- 行动号召 -->
-        <div class="cta-section">
-            <a href="https://mc.163.com/" class="netease-button" target="_blank">
+        <div class="action-section">
+            <a href="https://mc.163.com/" class="primary-button" target="_blank">
                 <i class="fas fa-rocket"></i> 网易我的世界立即下载体验
             </a>
-            <p style="margin-top: 20px; color: #a0d2ff;">使用模组码 <strong>8784493</strong> 在网易《我的世界》资源中心快速找到本模组</p>
+            <p style="margin-top: 25px; color: var(--text-muted); font-size: 1.1rem;">使用模组码 <strong>8784493</strong> 在网易《我的世界》资源中心快速找到本模组</p>
         </div>
-        
-        <!-- 页脚 -->
-        <footer>
-            <p>© 2026 网易《我的世界》"动作和物品：A&S"模组宣传页 | 本页面为模组宣传展示用途</p>
-            <p>"我的世界"是Mojang Studios的商标 | 网易公司拥有网易《我的世界》中国区运营权</p>
-            <p class="disclaimer">本页面中使用的图片和视频仅用于展示目的，实际模组效果以游戏内表现为准。所有游戏内容版权归其 respective 所有者所有。</p>
-        </footer>
-    </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer class="page-footer">
+        <p>© 2026 网易《我的世界》"动作和物品：A&S"模组宣传页 | 本页面为模组宣传展示用途</p>
+        <p>"我的世界"是Mojang Studios的商标 | 网易公司拥有网易《我的世界》中国区运营权</p>
+        <p class="disclaimer">本页面中使用的图片和视频仅用于展示目的，实际模组效果以游戏内表现为准。所有游戏内容版权归其 respective 所有者所有。请将图片URL替换为实际的宣传图片链接，视频嵌入代码替换为实际的宣传视频。</p>
+    </footer>
 
     <script>
-        // 简单的交互效果
+        // 交互功能脚本
         document.addEventListener('DOMContentLoaded', function() {
-            // 为所有特性卡片添加点击效果
-            const featureCards = document.querySelectorAll('.feature-card');
-            featureCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    this.style.transform = 'translateY(-10px) scale(1.02)';
-                    setTimeout(() => {
-                        this.style.transform = 'translateY(-10px)';
-                    }, 150);
-                });
-            });
-            
             // 模组码复制功能
-            const codeBox = document.querySelector('.code-box');
-            if(codeBox) {
-                codeBox.addEventListener('click', function() {
+            const modCodeElement = document.getElementById('modCode');
+            if(modCodeElement) {
+                modCodeElement.addEventListener('click', function() {
                     const code = '8784493';
                     navigator.clipboard.writeText(code).then(() => {
                         const originalText = this.textContent;
+                        const originalBorder = this.style.borderColor;
+                        const originalBg = this.style.backgroundColor;
+                        
                         this.textContent = '已复制到剪贴板！';
+                        this.style.borderColor = 'var(--accent-green)';
                         this.style.backgroundColor = 'rgba(0, 255, 100, 0.2)';
+                        
                         setTimeout(() => {
                             this.textContent = originalText;
-                            this.style.backgroundColor = '';
+                            this.style.borderColor = originalBorder;
+                            this.style.backgroundColor = originalBg;
                         }, 2000);
+                    }).catch(err => {
+                        console.error('复制失败: ', err);
+                        alert('复制失败，请手动复制模组码：8784493');
                     });
                 });
             }
             
-            // 图片懒加载模拟
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                img.addEventListener('load', function() {
-                    this.style.opacity = '1';
-                    this.style.transition = 'opacity 0.5s';
+            // 图片悬停效果增强
+            const imageCards = document.querySelectorAll('.image-card');
+            imageCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const img = this.querySelector('img');
+                    if(img) {
+                        img.style.transition = 'transform 0.8s ease';
+                    }
                 });
-                
-                img.style.opacity = '0.7';
+            });
+            
+            // 步骤卡片点击效果
+            const steps = document.querySelectorAll('.step');
+            steps.forEach(step => {
+                step.addEventListener('click', function() {
+                    this.style.transform = 'translateX(15px)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateX(10px)';
+                    }, 200);
+                });
+            });
+            
+            // 平滑滚动到锚点
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
         });
     </script>
